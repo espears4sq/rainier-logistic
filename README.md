@@ -38,5 +38,5 @@ This code is modified from the blog post below, retrieved on
 - [Monadic probabilistic programming in Scala with Rainier][1]
 
 [1]: https://darrenjw.wordpress.com/2018/06/01/monadic-probabilistic-programming-in-scala-with-rainier/
-[traceplot]: images/static/traceplots.png1
-[pairsplot]: images/static/pairs.png
+[trace]: images/static/traceplots.png
+[pairs]: images/static/pairs.png
