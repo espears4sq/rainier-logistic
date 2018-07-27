@@ -17,12 +17,13 @@ term and a slope term, such as:
 ------------------------------------
 mean      ||   00.029   ||    00.298
 std. dev. ||   00.069   ||    00.026
-5th pctl  ||   -0.085   ||    00.256
-95th pctl ||   00.142   ||    00.142
+2.5 pctl  ||   -0.108   ||    00.249
+50 pctl   ||   00.030   ||    00.297
+97.5 pctl ||   00.164   ||    00.164
 ------------------------------------
 ```
 
-The program also writes rwo image files into the /images folder:
+The program also writes two image files into the /images folder:
 `traceplots.png` and `pairs.png`, which implement monte carlo
 trace plots and parameter correlation (pairs) plots, like below:
 

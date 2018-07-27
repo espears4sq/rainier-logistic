@@ -15,7 +15,7 @@ object logistic extends App {
 
   // Helper function to extract the given percetile value from a
   // list, used to get posterior percentiles.
-  def percentile(pctl: Int, values: List[Double]): Double = {
+  def percentile(pctl: Double, values: List[Double]): Double = {
     val sorted = values.sorted
     val k = math.ceil((values.length - 1) * (pctl / 100.0)).toInt
     sorted(k)
@@ -86,10 +86,12 @@ object logistic extends App {
   val b1_mean = b1s.sum / its
   val b0_std = math.sqrt((b0s map {b => math.pow(b, 2)}).sum / its - math.pow(b0_mean, 2))
   val b1_std = math.sqrt((b1s map {b => math.pow(b, 2)}).sum / its - math.pow(b1_mean, 2))
-  val b0_5th = percentile(5, b0s)
-  val b1_5th = percentile(5, b1s)
-  val b0_95th = percentile(95, b0s)
-  val b1_95th = percentile(95, b0s)
+  val b0_2p5 = percentile(2.5, b0s)
+  val b1_2p5 = percentile(2.5, b1s)
+  val b0_50 = percentile(50, b0s)
+  val b1_50 = percentile(50, b1s)
+  val b0_97p5 = percentile(97.5, b0s)
+  val b1_97p5 = percentile(97.5, b0s)
 
 
   // Print a diagnostic summary
@@ -99,8 +101,9 @@ object logistic extends App {
   println("------------------------------------")
   println(f"mean      ||   ${b0_mean}%06.3f   ||    ${b1_mean}%06.3f   ")
   println(f"std. dev. ||   ${b0_std}%06.3f   ||    ${b1_std}%06.3f   ")
-  println(f"5th pctl  ||   ${b0_5th}%06.3f   ||    ${b1_5th}%06.3f   ")
-  println(f"95th pctl ||   ${b0_95th}%06.3f   ||    ${b1_95th}%06.3f   ")
+  println(f"2.5 pctl  ||   ${b0_2p5}%06.3f   ||    ${b1_2p5}%06.3f   ")
+  println(f"50 pctl   ||   ${b0_50}%06.3f   ||    ${b1_50}%06.3f   ")
+  println(f"97.5 pctl ||   ${b0_97p5}%06.3f   ||    ${b1_97p5}%06.3f   ")
   println("------------------------------------")
 
 
